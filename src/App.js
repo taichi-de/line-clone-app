@@ -2,13 +2,13 @@ import './App.css';
 import SignIn from './components/SignIn';
 import {useAuthState} from "react-firebase-hooks"
 import {auth} from "./firebase"
+import Line from './components/Line';
 
 function App() {
-  const user = useAuthState(auth);
+  const [user] = useAuthState(auth);
   return (
     <div>
-      (user ? )
-      <SignIn />
+      {user ? <Line /> : <SignIn />}
     </div>
   );
 }
