@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 import {db, auth} from "../firebase"
-import firebase from "firebase/combpat/app"
+import firebase from "firebase/compat/app"
 import {Input} from "@mui/material"
 import SendIcon from "@mui/icons-material/Send"
 
-function SendMessage() {
-    const [message, setMessage] = useState();
+function SendMessage({scroll}) {
+    const [message, setMessage] = useState('');
+
     function sendMessage(e) {
         e.preventDefault();
-
         const {uid, photoURL} = auth.currentUser;
 
         db.collection("messages").add({
@@ -16,13 +16,14 @@ function SendMessage() {
             photoURL,
             uid,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        })
+        });
         setMessage("");
+        scroll.current.scrollIntoView({ behavior: "smooth" });
     }
 
     return (
         <div>
-            <form action="" onSubmit={sendMessage}>
+            <form onSubmit={sendMessage}>
                 <div className="sendMsg">
                     <Input
                         style={{
@@ -37,7 +38,7 @@ function SendMessage() {
                         onChange={(e)=>setMessage(e.target.value)}
                         value={message}
                     />
-                    <SendIcon />
+                    <SendIcon style={{ color: "#7AC2FF", marginLeft: "20px" }} />
                 </div>
             </form>
         </div>

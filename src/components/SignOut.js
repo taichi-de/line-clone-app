@@ -5,16 +5,16 @@ import CallIcon from "@mui/icons-material/Call";
 
 function SignOut() {
   return (
-      <div className="header">
-          <Button
-            onClick={()=>auth.signOut}
+    <div className="header">
+        <Button
+            onClick={()=>auth.signOut()}
             style={{ color: "white", fontSize: "15px" }}
         >
             SignOut
         </Button>
         <h3>{auth.currentUser.displayName}</h3>
         <CallIcon />
-      </div>
+    </div>
   )
 }
 
