@@ -7,10 +7,10 @@ function SignOut() {
   return (
     <div className="header">
         <Button
-            onClick={()=>auth.signOut()}
-            style={{ color: "white", fontSize: "15px" }}
+          onClick={()=>auth.signOut()}
+          style={{ color: "white", fontSize: "15px" }}
         >
-            SignOut
+          SignOut
         </Button>
         <h3>{auth.currentUser.displayName}</h3>
         <CallIcon />
