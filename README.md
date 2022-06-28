@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-![https://github.com/taichi-de/line-clone-app/blob/main/src/line-clone-app.png](line-clone-app)
+![line-clone-app.png](/src/line-clone-app.png)
 
 ## Available Scripts
 
