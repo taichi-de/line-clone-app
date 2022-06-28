@@ -1,11 +1,9 @@
-import React, {useState,useEffect,useRef} from 'react';
+import React, {useState,useEffect} from 'react';
 import SignOut from './SignOut';
 import SendMessage from './SendMessage';
 import {db, auth} from "../firebase";
 
-
 function Line() {
-    const scroll = useRef();
     const [messages, setMessages] = useState([]);
     useEffect(() => {
         db.collection("messages")
@@ -27,11 +25,8 @@ function Line() {
                 ))}
             </div>
             <SendMessage />
-            <div ref={scroll}></div>
         </div>
     )
 }
 
 export default Line
-
-//TODO: unique key

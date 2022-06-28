@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![https://github.com/taichi-de/line-clone-app/blob/main/src/line-clone-app.png](line-clone-app)
 
 ## Available Scripts
 
