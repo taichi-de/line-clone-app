@@ -4,21 +4,26 @@ import firebase from "firebase/compat/app"
 import {Input} from "@mui/material"
 import SendIcon from "@mui/icons-material/Send"
 
-function SendMessage({scroll}) {
+function SendMessage() {
     const [message, setMessage] = useState('');
 
-    function sendMessage(e) {
+    function sendMessage(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const {uid, photoURL} = auth.currentUser;
 
-        db.collection("messages").add({
-            text: message,
-            photoURL,
-            uid,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        });
-        setMessage("");
-        scroll.current.scrollIntoView({ behavior: "smooth" });
+        const user = auth.currentUser;
+
+        if(user) {
+            const {uid, photoURL} = user;
+
+            db.collection("messages").add({
+                text: message,
+                photoURL,
+                uid,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            });
+
+            setMessage("");
+        }
     }
 
     return (

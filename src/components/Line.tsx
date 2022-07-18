@@ -1,12 +1,11 @@
-import React, {useState,useEffect,useRef} from 'react';
+import {useState,useEffect} from 'react';
 import SignOut from './SignOut';
 import SendMessage from './SendMessage';
 import {db, auth} from "../firebase";
 
-
 function Line() {
-    const scroll = useRef();
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([] as any);
+
     useEffect(() => {
         db.collection("messages")
             .orderBy("createdAt")
@@ -19,20 +18,21 @@ function Line() {
         <div>
             <SignOut/>
             <div className="msgs">
-                {messages.map(({id, text, photoURL, uid})=>(
-                    <div key={id} className={`msg ${uid === auth.currentUser.uid ? "sent" : "received"}`}>
+                {messages.map(({id, text, photoURL, uid}: {id: number, text: string, photoURL: string, uid: string})=>(
+                    <div key={id} className={
+                        `msg ${auth.currentUser ?
+                            uid === auth.currentUser.uid ?
+                             "sent" : "received"
+                            : null}
+                    `}>
                         <img src={photoURL} alt="icon" />
                         <p>{text}</p>
                     </div>
                 ))}
             </div>
             <SendMessage />
-            <div ref={scroll}></div>
         </div>
     )
 }
 
 export default Line
-
-//TODO: unique key
-//TODO: add test
