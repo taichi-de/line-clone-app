@@ -13,6 +13,3 @@ describe(SendMessage, () => {
         userEvent.click(send);
     })
 })
-
-//  TypeError: Cannot read properties of null (reading 'displayName')
-//  <h3>{auth.currentUser.displayName}</h3>

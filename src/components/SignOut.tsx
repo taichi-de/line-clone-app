@@ -12,7 +12,7 @@ function SignOut() {
         >
           SignOut
         </Button>
-        <h3>{auth.currentUser.displayName}</h3>
+        <h3>{auth.currentUser ? auth.currentUser.displayName : null}</h3>
         <CallIcon />
     </div>
   )
