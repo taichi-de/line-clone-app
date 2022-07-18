@@ -2,4 +2,4 @@
 
 ![line-clone-app.png](/src/line-clone-app.png)
 
-...was made with React / TS / Firebase
+...was made with React / TS / Firebase / material ui
