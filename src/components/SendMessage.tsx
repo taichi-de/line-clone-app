@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import {db, auth} from "../firebase"
-import firebase from "firebase/compat/app"
-import {Input} from "@mui/material"
-import SendIcon from "@mui/icons-material/Send"
+import { Input } from "@mui/material";
+import React, { useState } from "react";
+import { db, auth } from "../firebase.js";
+import firebase from "firebase/compat/app";
+import SendIcon from "@mui/icons-material/Send";
 
 function SendMessage() {
     const [message, setMessage] = useState('');
@@ -47,7 +47,7 @@ function SendMessage() {
                 </div>
             </form>
         </div>
-    )
+    );
 }
 
-export default SendMessage
+export default SendMessage;
